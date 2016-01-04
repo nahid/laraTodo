@@ -15,23 +15,23 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a class="page-scroll" href="{{url('/todo')}}">List</a>
+                    <a class="page-scroll" href="<?php echo e(url('/todo')); ?>">List</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="{{url('/todo/new')}}">Create New</a>
+                    <a class="page-scroll" href="<?php echo e(url('/todo/new')); ?>">Create New</a>
                 </li>
-                @if(auth()->check())
+                <?php if(auth()->check()): ?>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                        {{auth()->user()->name}}</span>
+                        <?php echo e(auth()->user()->name); ?></span>
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Account</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="{{url('user/logout')}}">Logout</a></li>
+                        <li><a href="<?php echo e(url('user/logout')); ?>">Logout</a></li>
                     </ul>
                 </li>
-                @endif
+                <?php endif; ?>
 
             </ul>
         </div>

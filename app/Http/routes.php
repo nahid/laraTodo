@@ -17,9 +17,16 @@ Route::get('/', function () {
 
 
 Route::controllers([
-  'todo'=>'TodoController'
+    'user' => 'UserController'
 
 ]);
+
+Route::group(['middleware'=>'auth'], function() {
+    Route::controllers([
+        'todo'=>'TodoController'
+
+    ]);
+});
 
 /*
 |--------------------------------------------------------------------------
